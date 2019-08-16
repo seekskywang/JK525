@@ -348,7 +348,7 @@ const uint8_t BiasButton_Tip[][7+1]=  //频率选择时候的下面的提示符号
 const uint8_t Sys_Sys[][20+1]=
 {
 	{"仪器型号:  JK526  "},
-	{"软件版本:  Ver:1.0"},
+	{"软件版本:  Ver:1.1"},
 	{"硬件版本:  Ver:1.0"},
 	{"仪器编号:"},
 //	{"账号    "},
@@ -359,7 +359,7 @@ const uint8_t Sys_Sys[][20+1]=
 const uint8_t Sys_Sys_E[][20+1]=
 {
 	{"INST MODEL:  JK526 "},
-	{"SOFT VER:   Ver:1.0"},
+	{"SOFT VER:   Ver:1.1"},
 	{"HARD VER:   Ver:1.0"},
 	{"SERIALNO:"},
 //	{"账号    "},
@@ -1994,6 +1994,8 @@ void Disp_Button_value1(uint32_t value)
             WriteString_16(32+BUTTON_W*2, BUTTON_2, "SETUP",  0);
             WriteString_16(32+BUTTON_W*3, BUTTON_1, "SYS",  0);
             WriteString_16(32+BUTTON_W*3, BUTTON_2, "INFO",  0);
+			WriteString_16(32+BUTTON_W*4, BUTTON_1, "CLEAR",  0);
+            WriteString_16(32+BUTTON_W*4, BUTTON_2, "VALUE",  0);
         
         
         }
@@ -2012,6 +2014,8 @@ void Disp_Button_value1(uint32_t value)
             WriteString_16(24+BUTTON_W*2, BUTTON_2, "设 置",  0);
             WriteString_16(24+BUTTON_W*3, BUTTON_1, "系 统",  0);
             WriteString_16(24+BUTTON_W*3, BUTTON_2, "信 息",  0);
+			WriteString_16(24+BUTTON_W*4, BUTTON_1, "短 路",  0);
+            WriteString_16(24+BUTTON_W*4, BUTTON_2, "清 零",  0);
 //		WriteString_16(84+80+80+80+80, 271-40, "更多",  0);
 //		WriteString_16(84+80+80+80+80, 271-20, " 1/2",  0);
         }

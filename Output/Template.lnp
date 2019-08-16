@@ -81,6 +81,6 @@
 "..\..\output\usbh_msc_scsi.o"
 "..\..\output\filesys.o"
 --library_type=microlib --strict --scatter "..\..\Output\Template.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "..\..\Listing\Template.map" -o ..\..\Output\Template.axf

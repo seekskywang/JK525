@@ -2,7 +2,7 @@
 ..\..\output\4094.o: ..\..\User\pbdata.h
 ..\..\output\4094.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\4094.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
-..\..\output\4094.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\..\output\4094.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\..\output\4094.o: ..\..\Libraries\CMSIS\Include\core_cmInstr.h
 ..\..\output\4094.o: ..\..\Libraries\CMSIS\Include\core_cmFunc.h
 ..\..\output\4094.o: ..\..\Libraries\CMSIS\Include\core_cmSimd.h
@@ -40,7 +40,7 @@
 ..\..\output\4094.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
 ..\..\output\4094.o: ..\..\HARDWARE\./led/bsp_led.h
 ..\..\output\4094.o: ..\..\HARDWARE\./sdram/bsp_sdram.h
-..\..\output\4094.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\..\output\4094.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\..\output\4094.o: ..\..\HARDWARE\./lcd/bsp_lcd.h
 ..\..\output\4094.o: ..\..\HARDWARE\./font/fonts.h
 ..\..\output\4094.o: ..\..\User\./flash/bsp_spi_flash.h
@@ -50,8 +50,8 @@
 ..\..\output\4094.o: ..\..\HARDWARE\./systick/bsp_SysTick.h
 ..\..\output\4094.o: ..\..\HARDWARE\./adc/bsp_adc.h
 ..\..\output\4094.o: ..\..\HARDWARE\./ch376/ch376.h
-..\..\output\4094.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\..\output\4094.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\4094.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\4094.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\4094.o: ..\..\HARDWARE\gpio.h
 ..\..\output\4094.o: ..\..\HARDWARE\4094.h
 ..\..\output\4094.o: ..\..\HARDWARE\ad7706.h

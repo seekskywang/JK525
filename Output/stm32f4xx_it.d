@@ -2,7 +2,7 @@
 ..\..\output\stm32f4xx_it.o: ..\..\User\stm32f4xx_it.h
 ..\..\output\stm32f4xx_it.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\stm32f4xx_it.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
-..\..\output\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\..\output\stm32f4xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\..\output\stm32f4xx_it.o: ..\..\Libraries\CMSIS\Include\core_cmInstr.h
 ..\..\output\stm32f4xx_it.o: ..\..\Libraries\CMSIS\Include\core_cmFunc.h
 ..\..\output\stm32f4xx_it.o: ..\..\Libraries\CMSIS\Include\core_cmSimd.h
@@ -41,7 +41,7 @@
 ..\..\output\stm32f4xx_it.o: ..\..\User\pbdata.h
 ..\..\output\stm32f4xx_it.o: ..\..\HARDWARE\./led/bsp_led.h
 ..\..\output\stm32f4xx_it.o: ..\..\HARDWARE\./sdram/bsp_sdram.h
-..\..\output\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\..\output\stm32f4xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\..\output\stm32f4xx_it.o: ..\..\HARDWARE\./lcd/bsp_lcd.h
 ..\..\output\stm32f4xx_it.o: ..\..\HARDWARE\./font/fonts.h
 ..\..\output\stm32f4xx_it.o: ..\..\User\./flash/bsp_spi_flash.h
@@ -51,8 +51,8 @@
 ..\..\output\stm32f4xx_it.o: ..\..\HARDWARE\./systick/bsp_SysTick.h
 ..\..\output\stm32f4xx_it.o: ..\..\HARDWARE\./adc/bsp_adc.h
 ..\..\output\stm32f4xx_it.o: ..\..\HARDWARE\./ch376/ch376.h
-..\..\output\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\..\output\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\stm32f4xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\stm32f4xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\stm32f4xx_it.o: ..\..\HARDWARE\gpio.h
 ..\..\output\stm32f4xx_it.o: ..\..\HARDWARE\4094.h
 ..\..\output\stm32f4xx_it.o: ..\..\HARDWARE\ad7706.h

@@ -3,7 +3,7 @@
 ..\..\output\filesys.o: ..\..\HARDWARE\./ch376/ch376.h
 ..\..\output\filesys.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\filesys.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
-..\..\output\filesys.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\..\output\filesys.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\..\output\filesys.o: ..\..\Libraries\CMSIS\Include\core_cmInstr.h
 ..\..\output\filesys.o: ..\..\Libraries\CMSIS\Include\core_cmFunc.h
 ..\..\output\filesys.o: ..\..\Libraries\CMSIS\Include\core_cmSimd.h
@@ -39,13 +39,13 @@
 ..\..\output\filesys.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h
 ..\..\output\filesys.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\filesys.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
-..\..\output\filesys.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\..\output\filesys.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\filesys.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\filesys.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\filesys.o: ..\..\HARDWARE\./ch376/ch376.h
 ..\..\output\filesys.o: ..\..\User\pbdata.h
 ..\..\output\filesys.o: ..\..\HARDWARE\./led/bsp_led.h
 ..\..\output\filesys.o: ..\..\HARDWARE\./sdram/bsp_sdram.h
-..\..\output\filesys.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\..\output\filesys.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\..\output\filesys.o: ..\..\HARDWARE\./lcd/bsp_lcd.h
 ..\..\output\filesys.o: ..\..\HARDWARE\./font/fonts.h
 ..\..\output\filesys.o: ..\..\User\./flash/bsp_spi_flash.h

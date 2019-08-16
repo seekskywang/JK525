@@ -1742,7 +1742,7 @@ V_Range=1;
 
                     break;
                     case Key_BIAS:
-                        SetSystemStatus(SYS_STATUS_CLEAR);
+                        
                     break;
                     case Key_REST:
                     break;

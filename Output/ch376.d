@@ -1,7 +1,7 @@
 ..\..\output\ch376.o: ..\..\HARDWARE\ch376\ch376.c
 ..\..\output\ch376.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\ch376.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
-..\..\output\ch376.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\..\output\ch376.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\..\output\ch376.o: ..\..\Libraries\CMSIS\Include\core_cmInstr.h
 ..\..\output\ch376.o: ..\..\Libraries\CMSIS\Include\core_cmFunc.h
 ..\..\output\ch376.o: ..\..\Libraries\CMSIS\Include\core_cmSimd.h
@@ -38,13 +38,13 @@
 ..\..\output\ch376.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\ch376.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
 ..\..\output\ch376.o: ..\..\HARDWARE\./ch376/ch376.h
-..\..\output\ch376.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\..\output\ch376.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\ch376.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\ch376.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\ch376.o: ..\..\HARDWARE\./systick/bsp_SysTick.h
 ..\..\output\ch376.o: ..\..\User\pbdata.h
 ..\..\output\ch376.o: ..\..\HARDWARE\./led/bsp_led.h
 ..\..\output\ch376.o: ..\..\HARDWARE\./sdram/bsp_sdram.h
-..\..\output\ch376.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\..\output\ch376.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\..\output\ch376.o: ..\..\HARDWARE\./lcd/bsp_lcd.h
 ..\..\output\ch376.o: ..\..\HARDWARE\./font/fonts.h
 ..\..\output\ch376.o: ..\..\User\./flash/bsp_spi_flash.h

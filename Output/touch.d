@@ -2,7 +2,7 @@
 ..\..\output\touch.o: ..\..\HARDWARE\touch\touch.h
 ..\..\output\touch.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\touch.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
-..\..\output\touch.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\..\output\touch.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\..\output\touch.o: ..\..\Libraries\CMSIS\Include\core_cmInstr.h
 ..\..\output\touch.o: ..\..\Libraries\CMSIS\Include\core_cmFunc.h
 ..\..\output\touch.o: ..\..\Libraries\CMSIS\Include\core_cmSimd.h
@@ -38,12 +38,12 @@
 ..\..\output\touch.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h
 ..\..\output\touch.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\touch.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
-..\..\output\touch.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\..\output\touch.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\..\output\touch.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\touch.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 ..\..\output\touch.o: ..\..\User\pbdata.h
 ..\..\output\touch.o: ..\..\HARDWARE\./led/bsp_led.h
 ..\..\output\touch.o: ..\..\HARDWARE\./sdram/bsp_sdram.h
-..\..\output\touch.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\..\output\touch.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\..\output\touch.o: ..\..\HARDWARE\./lcd/bsp_lcd.h
 ..\..\output\touch.o: ..\..\HARDWARE\./font/fonts.h
 ..\..\output\touch.o: ..\..\User\./flash/bsp_spi_flash.h
@@ -53,7 +53,7 @@
 ..\..\output\touch.o: ..\..\HARDWARE\./systick/bsp_SysTick.h
 ..\..\output\touch.o: ..\..\HARDWARE\./adc/bsp_adc.h
 ..\..\output\touch.o: ..\..\HARDWARE\./ch376/ch376.h
-..\..\output\touch.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\touch.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\touch.o: ..\..\HARDWARE\gpio.h
 ..\..\output\touch.o: ..\..\HARDWARE\4094.h
 ..\..\output\touch.o: ..\..\HARDWARE\ad7706.h
