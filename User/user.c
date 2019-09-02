@@ -4923,6 +4923,8 @@ void read_adV_one(void)
 
 void read_adI_one(void)
 {
+	u8 i;
+	
 	I_ad=0;
     while(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_7)==Bit_SET);
     delay_us(20);

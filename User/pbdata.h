@@ -286,7 +286,7 @@ u8 GetSoftTimerOut(u8 id);
 #define RAN_ADDR_X			(7)
 
 //电流量程上下限
-#define RANGR_LIMIT_HIGH (3300)
+#define RANGR_LIMIT_HIGH (3100)
 #define RANGR_LIMIT_LOW  (300)
 
 // 电压量程上下限

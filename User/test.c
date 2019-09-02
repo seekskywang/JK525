@@ -129,7 +129,7 @@ void Power_Process(void)
 	MenuIndex=0;//待机菜单项
 	i=0;//显示延时
     open_flag=1;
-    Range=3;
+//    Range=3;
     Range_Control(Range);
     RangeChange_Flag=1;
 	Touch_GPIO_Config();
@@ -1668,6 +1668,16 @@ V_Range=1;
                             case 0:
                                  SetSystemStatus(SYS_STATUS_CLEAR);
                                 break;
+							case 4:
+                                if(Range<=0)
+                                    Range=RANGE_MAX;
+                                else
+                                    Range--;
+                                Jk516save.Set_Data.Range_Set=1;
+                                Jk516save.Set_Data.Range=Range;
+                                Range_Control(Range);
+                                
+                            break;
                             default:
                                 break;
                         }
@@ -1680,6 +1690,7 @@ V_Range=1;
                         //SetSystemStatus(SYS_STATUS_SETUP);
                     break;
                     case Key_FAST:
+						TP_Adjust();
                     break;
                     case Key_LEFT:
                         if(keynum<1)
