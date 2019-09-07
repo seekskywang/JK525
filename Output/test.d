@@ -94,3 +94,4 @@
 ..\..\output\test.o: ..\..\HARDWARE\./ch376/ch376.h
 ..\..\output\test.o: ..\..\FILESYS\FILESYS.h
 ..\..\output\test.o: ..\..\HARDWARE\./ch376/ch376.h
+..\..\output\test.o: ..\..\User\./beep/bsp_beep.h

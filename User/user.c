@@ -22,6 +22,7 @@
 //#include "Hardware.h"
 #include "gpio.h"
 #include "./RTC/bsp_rtc.h"
+#include "./beep/bsp_beep.h" 
 //#include "Interrupt.h"
 //#include "Lcd240128.h"
 //#include "Disp.h"
@@ -126,7 +127,7 @@ const uint8_t All_TopName[][21+1]=
 	{"< 列表扫描设置 >"},
 	{"< 系统设置 >    "},
 	{"[ LCR文件列表 ] "},
-	{"< 系统显示 >    "},
+	{"< 系统信息 >    "},
 
 };
 
@@ -1767,26 +1768,28 @@ u8 Comp_choice(void)//三种模式分选
 void Beep_Out(u8 flag)
 {
     if(Jk516save.Set_Data.beep==0)
-        Beep_Off();
+	{
+        BEEP_OFF;
+	}
     else
     {
         if(flag==0)//合格
         {
             if(Jk516save.Set_Data.beep==1)//合格响
             {
-                Beep_On();
+                BEEP_ON;
             }
             else
-                Beep_Off();
+                BEEP_OFF;
         }
         else//不合格
         {
             if(Jk516save.Set_Data.beep==2)//不合格响
             {
-                Beep_On();
+                BEEP_ON;
             }
             else
-                Beep_Off();
+                BEEP_OFF;
         }
     }
 
@@ -1841,6 +1844,8 @@ void Disp_Testvalue(Test_ValueTypedef value,Test_ValueTypedef value_v,u8 speed)
 //    u32 date;
     u32 Res_disp;
     Res_disp=value.res;
+	Colour.black = LCD_COLOR_TEST_BACK;
+	Colour.Fword = White;
     for(i=0;i<9;i++)
     DispBuf[i]=0;
     #ifdef BASTARDLY
@@ -1962,7 +1967,7 @@ void Disp_Fastbutton(void)
 	{
         Colour.black=LCD_COLOR_TEST_BUTON;
 		LCD_DrawFullRect( 4*i+i*124, 414, 124, 66   ) ;
-        Colour.black=LCD_COLOR_TEST_LINE;
+        Colour.black=LCD_COLOR_GREY;
         LCD_DrawFullRect( 124*i+4*i, 414, 124, 2   );
         LCD_DrawFullRect( 124*i+4*i, 414, 2, 66   );
 //        Colour.black=Black;
@@ -1977,7 +1982,7 @@ void Disp_Button_value1(uint32_t value)
 	Disp_Fastbutton();
 	if(value==0)
 	{
-		Colour.Fword=Black;
+		Colour.Fword=LCD_COLOR_BUTTON;
 		Colour.black=LCD_COLOR_TEST_BUTON;
         if(Jk516save.Sys_Setvalue.lanage)
         {
@@ -1994,8 +1999,11 @@ void Disp_Button_value1(uint32_t value)
             WriteString_16(32+BUTTON_W*2, BUTTON_2, "SETUP",  0);
             WriteString_16(32+BUTTON_W*3, BUTTON_1, "SYS",  0);
             WriteString_16(32+BUTTON_W*3, BUTTON_2, "INFO",  0);
-			WriteString_16(32+BUTTON_W*4, BUTTON_1, "CLEAR",  0);
-            WriteString_16(32+BUTTON_W*4, BUTTON_2, "VALUE",  0);
+			if(GetSystemStatus()==SYS_STATUS_TEST)
+			{
+				WriteString_16(32+BUTTON_W*4, BUTTON_1, "CLEAR",  0);
+				WriteString_16(32+BUTTON_W*4, BUTTON_2, "VALUE",  0);
+			}
         
         
         }
@@ -2014,8 +2022,11 @@ void Disp_Button_value1(uint32_t value)
             WriteString_16(24+BUTTON_W*2, BUTTON_2, "设 置",  0);
             WriteString_16(24+BUTTON_W*3, BUTTON_1, "系 统",  0);
             WriteString_16(24+BUTTON_W*3, BUTTON_2, "信 息",  0);
-			WriteString_16(24+BUTTON_W*4, BUTTON_1, "短 路",  0);
-            WriteString_16(24+BUTTON_W*4, BUTTON_2, "清 零",  0);
+			if(GetSystemStatus()==SYS_STATUS_TEST)
+			{
+				WriteString_16(24+BUTTON_W*4, BUTTON_1, "短 路",  0);
+				WriteString_16(24+BUTTON_W*4, BUTTON_2, "清 零",  0);
+			}
 //		WriteString_16(84+80+80+80+80, 271-40, "更多",  0);
 //		WriteString_16(84+80+80+80+80, 271-20, " 1/2",  0);
         }
@@ -2115,7 +2126,7 @@ void Disp_Test_Item(void)
     else
         ppt=All_TopName;
 	WriteString_16(LIST1, 0, ppt[0],  0);
-	Colour.Fword=LCD_COLOR_YELLOW;
+	Colour.Fword=LCD_COLOR_SET;
 	Colour.black=LCD_COLOR_TEST_BACK;
     if(Jk516save.Sys_Setvalue.lanage)
         pt=Test_Setitem_E;
@@ -2165,7 +2176,7 @@ void Disp_Test_value(u8 num)
 		Colour.black=LCD_COLOR_TEST_BACK;
 	}
 	LCD_DrawFullRect( DISPX1, FIRSTLINE,RECT , HIGH1  ) ;//SPACE1
-    Colour.Fword=White;
+    Colour.Fword=LCD_COLOR_YELLOW;
 	WriteString_16(DISPX1, FIRSTLINE, pt[Jk516save.Set_Data.trip],  0);//增加算法  把顺序改过来
 	
 //电阻上限
@@ -2276,7 +2287,7 @@ void Disp_Test_value(u8 num)
 			break;
 		case 1:
 		
-				Colour.Fword=Black;//
+				Colour.Fword=LCD_COLOR_BUTTON;//
 				Colour.black=LCD_COLOR_TEST_BUTON;
 				
 				if(Jk516save.Sys_Setvalue.lanage)
@@ -2301,7 +2312,7 @@ void Disp_Test_value(u8 num)
 		
 		break;
 		case 2:
-			Colour.Fword=Black;
+			Colour.Fword=LCD_COLOR_BUTTON;
 			Colour.black=LCD_COLOR_TEST_BUTON;
             if(Jk516save.Sys_Setvalue.lanage)
             {
@@ -2319,7 +2330,7 @@ void Disp_Test_value(u8 num)
 			}
 		break;
 		case 3:
-			Colour.Fword=Black;
+			Colour.Fword=LCD_COLOR_BUTTON;
 			Colour.black=LCD_COLOR_TEST_BUTON;
         if(Jk516save.Sys_Setvalue.lanage)
             {
@@ -2338,7 +2349,7 @@ void Disp_Test_value(u8 num)
 			break;
 
 		case 4:
-			Colour.Fword=Black;
+			Colour.Fword=LCD_COLOR_BUTTON;
 			Colour.black=LCD_COLOR_TEST_BUTON;
 			for(i=0;i<5;i++)
 			{
@@ -2347,7 +2358,7 @@ void Disp_Test_value(u8 num)
 			}
 			break;
 		case 5:
-			Colour.Fword=Black;
+			Colour.Fword=LCD_COLOR_BUTTON;
 			Colour.black=LCD_COLOR_TEST_BUTON;
             if(Jk516save.Sys_Setvalue.lanage)
                 {
@@ -2365,7 +2376,7 @@ void Disp_Test_value(u8 num)
 			}
 			break;
 		case 6:
-			Colour.Fword=Black;
+			Colour.Fword=LCD_COLOR_BUTTON;
 			Colour.black=LCD_COLOR_TEST_BUTON;
             if(Jk516save.Sys_Setvalue.lanage)
             {
@@ -2422,7 +2433,7 @@ void Disp_Test_Set_Item(void)
     else
         ppt=All_TopName;
 	WriteString_16(0, 4, ppt[4],  0);
-	Colour.Fword=LCD_COLOR_YELLOW;
+	Colour.Fword=LCD_COLOR_SET;
 	Colour.black=LCD_COLOR_TEST_BACK;
     if(Jk516save.Sys_Setvalue.lanage)
         pt=Set_testitem_E;
@@ -2464,7 +2475,7 @@ void DispSet_value(u8 keynum)
     const u8 (*pt)[7];
     const u8 (*ppt)[11];
 	vu32 Black_Select;
-	Colour.Fword=White;
+	Colour.Fword=LCD_COLOR_YELLOW;
 	Black_Select=(keynum==1)?1:0;
 	if(Black_Select)//触发
 	{
@@ -2734,7 +2745,7 @@ void DispSet_value(u8 keynum)
 	WriteString_16(DISPX2+16*8, FIRSTLINE+HIGH1*7, "V",  0);
 	
 	Disp_Fastbutton();
-	Colour.Fword=LCD_COLOR_BLACK;
+	Colour.Fword=LCD_COLOR_BUTTON;
 	//Disp_Fastbutton();
 	switch(keynum)
 	{
@@ -3015,7 +3026,7 @@ void Disp_Sys_Item(void)
         ppt=All_TopName;
 	WriteString_16(0, 4, ppt[8],  0);
 	//WriteString_16(0, 4, All_TopName[8],  0);
-	Colour.Fword=White;
+	Colour.Fword=LCD_COLOR_SET;
 	Colour.black=LCD_COLOR_TEST_BACK;
     if(Jk516save.Sys_Setvalue.lanage)
     pt=Sys_Setitem_E;
@@ -3047,6 +3058,7 @@ void Disp_Sys_value(u8 keynum)
     const u8 (*pt)[7];
 //	vu32 xpose;
 	vu32 Black_Select;
+	Colour.Fword=LCD_COLOR_YELLOW;
     RTC_TimeTypeDef RTC_TimeStructure;
 	RTC_DateTypeDef RTC_DateStructure;
     RTC_TimeStructure.RTC_H12 = RTC_HourFormat_24;
@@ -3281,7 +3293,7 @@ void Disp_Sys_value(u8 keynum)
 
     
 	Disp_Fastbutton();
-    Colour.Fword=White;
+    Colour.Fword=LCD_COLOR_BUTTON;
 	Colour.black=LCD_COLOR_TEST_BUTON;
 	switch(keynum)
 	{
@@ -3488,7 +3500,7 @@ void Disp_button_Num_time(void)
 	Disp_Fastbutton();
 	
 	Colour.black=LCD_COLOR_TEST_BUTON;
-	Colour.Fword=White;
+	Colour.Fword=LCD_COLOR_BUTTON;
 	WriteString_16(32, BUTTON_1+16, "mΩ ",  0);
 	WriteString_16(32+128,BUTTON_1+16, " Ω ",  0);
     //WriteString_16(32+128*2, BUTTON_1+16, "kΩ ",  0);
@@ -3525,6 +3537,7 @@ Sort_TypeDef Disp_NumKeyboard_Set(Disp_Coordinates_Typedef *Coordinates,u8 flag 
 		key=Key_Read_WithTimeOut(TICKS_PER_SEC_SOFTTIMER/10);
         if(key!=KEY_NONE)
 		{
+			ButtonSound();
 			dispflag=1;
 //            Key_Beep();
 			switch(key)
@@ -4017,7 +4030,7 @@ void Disp_button_Num_Freq(void)
 	Disp_Fastbutton();
 	
 	Colour.black=LCD_COLOR_TEST_BUTON;
-	Colour.Fword=White;
+	Colour.Fword=LCD_COLOR_BUTTON;
 	WriteString_16(48, BUTTON_1+16, " V ",  0);
 	//WriteString_16(84+80, 271-30, " Ω ",  0);
 

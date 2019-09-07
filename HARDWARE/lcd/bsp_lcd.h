@@ -101,10 +101,12 @@ extern Typedf_Disp_Colour Colour;
 #define LCD_COLOR_GREEN          0x00FF00
 #define LCD_COLOR_CYAN           0x00FFFF
 #define LCD_COLOR_YELLOW         0xFFFF00
+#define LCD_COLOR_SET            0x98F5FF
+#define LCD_COLOR_BUTTON         0x54FF9F
 #define SDRAM_SIZE               0x4000000	// 512Mbit
 #define	LCD_COLOR_TEST_MID  	 0x343465//0x653434
 #define	LCD_COLOR_TEST_BACK 	 LCD_COLOR_BLUE//0X500050//0xb4007d//
-#define	LCD_COLOR_TEST_BUTON     LCD_COLOR_GREY
+#define	LCD_COLOR_TEST_BUTON     Black
 #define	LCD_COLOR_TEST_LINE      0X694368
 #define	LCD_COLOR_TEST_BAR       0xf35203//0x0352F3
 

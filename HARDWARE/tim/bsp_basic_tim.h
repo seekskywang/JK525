@@ -10,6 +10,12 @@
 #define BASIC_TIM_IRQHandler    TIM6_DAC_IRQHandler
 
 
+#define BEEP_TIM           				TIM8
+#define BEEP_TIM_CLK       				RCC_APB2Periph_TIM8 
+
+#define BEEP_TIM_IRQn					TIM8_IRQn
+#define BEEP_TIM_IRQHandler    			TIM8_IRQHandler
+
 void TIM6_Configuration(void);
 void TIM_PWMOUTPUT_Config(u8 duty);
 

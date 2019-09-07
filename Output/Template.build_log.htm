@@ -22,12 +22,25 @@ Dialog DLL:      TCM.DLL V1.35.1.0
  
 <h2>Project:</h2>
 F:\JK525\Project\RVMDK£¨uv5£©\BH-F429.uvprojx
-Project File Date:  08/14/2019
+Project File Date:  09/03/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target '¹¤³ÌÄ£°å'
-"..\..\Output\Template.axf" - 0 Error(s), 0 Warning(s).
+compiling test.c...
+..\..\User\test.c(2044): warning:  #177-D: variable "a"  was declared but never referenced
+      float a,b;
+..\..\User\test.c(2044): warning:  #177-D: variable "b"  was declared but never referenced
+      float a,b;
+..\..\User\test.c(2326): warning:  #550-D: variable "range_v"  was set but never used
+      u8 range_v,range;;
+..\..\User\test.c(2328): warning:  #177-D: variable "Clear_num"  was declared but never referenced
+      u8 Clear_num=0;
+..\..\User\test.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=71596 RO-data=268292 RW-data=480 ZI-data=32344  
+FromELF: creating hex file...
+"..\..\Output\Template.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -41,7 +54,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>

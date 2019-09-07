@@ -38,3 +38,4 @@
 ..\..\output\bsp_basic_tim.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h
 ..\..\output\bsp_basic_tim.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\bsp_basic_tim.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
+..\..\output\bsp_basic_tim.o: ..\..\User\./beep/bsp_beep.h

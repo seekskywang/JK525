@@ -9,7 +9,7 @@
 #include "./touch/touch.h"
 #include "./ch376/ch376.h"
 #include "FILESYS.h"
-
+#include "./beep/bsp_beep.h"
 
 
 //反馈切换
@@ -103,7 +103,8 @@ void Power_Process(void)
     
 //    Keyboard_Init();//按键初始化
     TIM6_Configuration();
-
+	  
+	Beep_GPIO_Config();
     //////////////////////////////////////////液晶初始化
     LCD_Init();
     LCD_LayerInit();
@@ -129,7 +130,7 @@ void Power_Process(void)
 	MenuIndex=0;//待机菜单项
 	i=0;//显示延时
     open_flag=1;
-//    Range=3;
+    Range=Jk516save.Set_Data.Range;
     Range_Control(Range);
     RangeChange_Flag=1;
 	Touch_GPIO_Config();
@@ -283,6 +284,7 @@ void Setup_Process(void)
 		tp_dev.scan(0); 		 
 		if(tp_dev.sta&TP_PRES_DOWN)			//触摸屏被按下
 		{
+			
 			if(tp_dev.x[0]<640&&tp_dev.y[0]<480)
 			{	
 
@@ -339,29 +341,36 @@ void Setup_Process(void)
 							{
 								case 0:
 									SetSystemStatus(SYS_STATUS_TEST);
+									ButtonSound();
 								break;
 								case 1:
 									Jk516save .Set_Data.trip=0;
+									ButtonSound();
 									break;
 								case 2:
 									Jk516save .Set_Data.speed=0;
+									ButtonSound();
 									break;
 								case 3:
 									Jk516save .Set_Data.Res_comp=0;
+									ButtonSound();
 									break;
 								case 4:
 									break;
 								case 5:
 									Jk516save .Set_Data.V_comp=0;
+									ButtonSound();
 									break;
 								case 6:
 									break;
 								case 7:
 									Jk516save.Set_Data.Range_Set=0;
 									Jk516save.Set_Data.Range=0;//自动
+									ButtonSound();
 									break;
 								case 8:
 									Jk516save .Set_Data.beep=0;
+									ButtonSound();
 									break;
 								case 9:
 									break;
@@ -385,25 +394,30 @@ void Setup_Process(void)
 								break;
 								case 1:
 									Jk516save .Set_Data.trip=1;
+									ButtonSound();
 									break;
 								case 2:
 									//Jk516save .Set_Data.speed=1;
 									break;
 								case 3:
 									Jk516save .Set_Data.Res_comp=1;
+									ButtonSound();
 									break;
 								case 4:
 									break;
 								case 5:
 									Jk516save .Set_Data.V_comp=1;
+									ButtonSound();
 									break;
 								case 6:
 									break;
 								case 7:
 									Jk516save.Set_Data.Range_Set=1;
+									ButtonSound();
 									break;
 								case 8:
 									Jk516save .Set_Data.beep=1;
+									ButtonSound();
 									break;
 								case 9:
 									break;
@@ -425,6 +439,7 @@ void Setup_Process(void)
 							{
 								case 0:
 									SetSystemStatus(SYS_STATUS_SYSSET);
+									ButtonSound();
 								break;
 								case 1:
 									//Jk516save .Set_Data.trip=0;
@@ -445,9 +460,11 @@ void Setup_Process(void)
 									Range=Jisuan_Range(Jk516save.Set_Data.Nominal_Res);
 									Jk516save.Set_Data.Range=Range;
 									Range_Control(Range);
+									ButtonSound();
 									break;
 								case 8:
 									Jk516save .Set_Data.beep=2;
+									ButtonSound();
 									break;
 								case 9:
 									break;
@@ -470,6 +487,7 @@ void Setup_Process(void)
 							{
 								case 0:
 									SetSystemStatus(SYS_STATUS_SYS);
+									ButtonSound();
 								break;
 								case 1:
 									//Jk516save .Set_Data.trip=0;
@@ -492,6 +510,7 @@ void Setup_Process(void)
 									else
 										Jk516save.Set_Data.Range=0;
 									Range=Jk516save.Set_Data.Range;
+									ButtonSound();
 									break;
 								case 8:
 									break;
@@ -538,6 +557,7 @@ void Setup_Process(void)
 									else
 										Jk516save.Set_Data.Range=0;
 									Range=Jk516save.Set_Data.Range;
+									ButtonSound();
 									break;
 								case 8:
 									break;
@@ -557,63 +577,75 @@ void Setup_Process(void)
 							break;
 						case 5:
 							keynum=1;
+							ButtonSound();
 							break;
 						case 6:
 							keynum=2;
+							ButtonSound();
 							break;
 						case 7:
 							//keynum=3;
 							break;
 						case 8:
 							keynum=3;
+							ButtonSound();
 							break;
 						case 9://弹出数字框
 							keynum=4;
+							ButtonSound();
 							break;
 						case 10:
 							//keynum=5;
 							break;
 						case 11:
 							keynum=5;
+							ButtonSound();
 							break;
 						case 12:
 							keynum=6;
+							ButtonSound();
 							break;
 						case 13:
 							keynum=7;
+							ButtonSound();
 							break;
 						
 						case 14:
 							keynum=8;
+							ButtonSound();
 							break;
 						case 15:
 							break;
 						case 16:
 							keynum=9;
+							ButtonSound();
 							break;
 						case 17:
 							keynum=10;
+							ButtonSound();
 							break;
 						case 18:
 							break;
 						case 19:
 							keynum=11;
+							ButtonSound();
 							break;
 						case 20:
 							keynum=12;
+							ButtonSound();
 							break;
 						default:
 							break;
 					
 					
 					}
-				
 			}
 		
 		}
         key=Key_Read_WithTimeOut(TICKS_PER_SEC_SOFTTIMER/10);
         if(key!=KEY_NONE)
 		{	Disp_Flag=1;
+			ButtonSound();
 			switch(key)
 			{
 				case Key_F1:
@@ -948,7 +980,7 @@ void Setup_Process(void)
 				break;
                 case Key_FAST:
 				
-				
+					keynum=0;
 																							
 					break;
 				case Key_BACK:
@@ -970,10 +1002,10 @@ void Setup_Process(void)
 		}
 	 	
 	
-	
+	Store_set_flash();
 	
 	}
-	Store_set_flash();
+	
 }
 
 //==========================================================
@@ -1355,8 +1387,8 @@ V_Range=1;
                             }
                             memcpy((void *)Send_To_U.comp,DispBuf,5);
                             DispBuf[5]=0;
-//                            LCD_DrawFullRect(SORTING_XDISP, SORTING_Y_DISP, 60, 22);
-//                            WriteString_16(SORTING_XDISP, SORTING_Y_DISP, DispBuf,  0);
+                            LCD_DrawFullRect(SORTING_XDISP, SORTING_Y_DISP, 60, 22);
+                            WriteString_16(SORTING_XDISP, SORTING_Y_DISP, DispBuf,  0);
                          Colour.black=color;
                         }
                         else
@@ -1382,7 +1414,8 @@ V_Range=1;
                             
                              memcpy((void *)Send_To_U.comp,DispBuf,5);
                              DispBuf[5]=0;
-
+							 LCD_DrawFullRect(SORTING_XDISP, SORTING_Y_DISP, 60, 22);
+                             WriteString_16(SORTING_XDISP, SORTING_Y_DISP, DispBuf,  0);
                             
                             }else if(Jk516save.Set_Data.V_comp==1)
                             {
@@ -1405,7 +1438,8 @@ V_Range=1;
                                 }
                              memcpy((void *)Send_To_U.comp,DispBuf,5);
                              DispBuf[5]=0; 
-
+							 LCD_DrawFullRect(SORTING_XDISP, SORTING_Y_DISP, 60, 22);
+                             WriteString_16(SORTING_XDISP, SORTING_Y_DISP, DispBuf,  0);
                             }
                             else
                             {
@@ -1485,29 +1519,33 @@ V_Range=1;
 		{
 			if(tp_dev.x[0]<640&&tp_dev.y[0]<480)
 			{	
-
+				
 				for(i=0;i<5;i++)
 				{
 					if((tp_dev.x[0]>(24+BUTTON_W*i))&&(tp_dev.x[0]<(24+BUTTON_W*(i+1)))&&(tp_dev.y[0]>BUTTON_1))
 						touch_value=i;
 					else
 						touch_value=0xff;
-				
+					
 					switch(touch_value)
 					{
 						case 0:
 							break;
 						case 1:
 							SetSystemStatus(SYS_STATUS_SETUP);
+							ButtonSound();
 							break;
 						case 2:
 							SetSystemStatus(SYS_STATUS_SYSSET);
+							ButtonSound();
 							break;
 						case 3:
 							SetSystemStatus(SYS_STATUS_SYS);
+							ButtonSound();
 							break;
 						case 4:
                             SetSystemStatus(SYS_STATUS_CLEAR);
+							ButtonSound();
 							break;
 						default:
 							break;
@@ -1522,7 +1560,7 @@ V_Range=1;
         if(Keyboard.state==TRUE)
         {
             Disp_Flag=1;
-			
+			ButtonSound();
 			
             key=Key_Read();
 			
@@ -1686,11 +1724,12 @@ V_Range=1;
                     case Key_Disp:
                     break;
                     case Key_SETUP://ENTER
-                        keynum=0;
+						test_start=1;
+                        
                         //SetSystemStatus(SYS_STATUS_SETUP);
                     break;
                     case Key_FAST:
-						TP_Adjust();
+						keynum=0;
                     break;
                     case Key_LEFT:
                         if(keynum<1)
@@ -1758,7 +1797,7 @@ V_Range=1;
                     case Key_REST:
                     break;
                     case Key_TRIG:
-                        test_start=1;
+                        
                         
                     break;
                     default:
@@ -1766,9 +1805,10 @@ V_Range=1;
                     break;
                         
                 }
+			Store_set_flash();
          }
      }
-    Store_set_flash();
+    
    // f_mount(NULL, "0:", 0);
 }
 //==========================================================
@@ -2294,7 +2334,7 @@ void Clear_Process(void)
     while(GetSystemStatus()==SYS_STATUS_CLEAR)
     {
          Select_V_I(1);
-        delay_ms(30);
+        delay_ms(100);
          read_adI_4();//
                            
 						
@@ -2304,7 +2344,7 @@ void Clear_Process(void)
             V_Range_Control(0);
         else
             V_Range_Control(1);
-        delay_ms(30);
+        delay_ms(100);
         read_adV_4();
 
             Jk516save.Clear[list]=disp_I;
@@ -2314,7 +2354,7 @@ void Clear_Process(void)
                 range_v=list;
                 
             }
-            Range_Control(list);
+            Range_Control(list+1);
             Disp_Range(0,list);
         
             if(list>=RANGE_MAX)
@@ -2367,7 +2407,7 @@ void Use_SysSetProcess(void)
 		{
 			if(tp_dev.x[0]<640&&tp_dev.y[0]<480)
 			{	
-
+				
 				for(i=0;i<5;i++)
 				{
 					if((tp_dev.x[0]>(24+BUTTON_W*i))&&(tp_dev.x[0]<(24+BUTTON_W*(i+1)))&&(tp_dev.y[0]>BUTTON_1))
@@ -2379,15 +2419,18 @@ void Use_SysSetProcess(void)
 					{
 						case 0:
 							SetSystemStatus(SYS_STATUS_TEST);
+							ButtonSound();
 							break;
 						case 1:
 							SetSystemStatus(SYS_STATUS_SETUP);
+							ButtonSound();
 							break;
 						case 2:
 							//SetSystemStatus(SYS_STATUS_SYSSET);
 							break;
 						case 3:
 							SetSystemStatus(SYS_STATUS_SYS);
+							ButtonSound();
 							break;
 						case 4:
 							break;
@@ -2406,6 +2449,7 @@ void Use_SysSetProcess(void)
         RTC_GetDate(RTC_Format_BIN, &RTC_DateStructure);
 		if(key!=KEY_NONE)
 		{
+			ButtonSound();
 			Disp_flag=1;
            //Key_Beep();
 			switch(key)
@@ -2660,8 +2704,8 @@ void Use_SysSetProcess(void)
                     SetSystemStatus(SYS_STATUS_SETUP);
 				break;
 				case Key_FAST:
-                    if(keynum==12)
-                    {
+//                    if(keynum==12)
+//                    {
                         //dispflag=0;
 //                        for(i=0;i<8;i++)
 //                        {
@@ -2671,7 +2715,7 @@ void Use_SysSetProcess(void)
                         key_count=0;
                         keynum=0;
                         //Savetoeeprom();
-                    }
+//                    }
 				break;
 				case Key_LEFT:
 				break;
@@ -2828,12 +2872,12 @@ void Use_SysSetProcess(void)
 					
 			}
 		
-		
+		Store_set_flash();
 		}
 	
 	
 	}
-    Store_set_flash();
+    
 }
 
 void Sys_Process(void)
@@ -2853,6 +2897,7 @@ void Sys_Process(void)
 		tp_dev.scan(0); 		 
 		if(tp_dev.sta&TP_PRES_DOWN)			//触摸屏被按下
 		{
+			
 			if(tp_dev.x[0]<640&&tp_dev.y[0]<480)
 			{	
 
@@ -2867,12 +2912,15 @@ void Sys_Process(void)
 					{
 						case 0:
 							SetSystemStatus(SYS_STATUS_TEST);
+							ButtonSound();
 							break;
 						case 1:
 							SetSystemStatus(SYS_STATUS_SETUP);
+							ButtonSound();
 							break;
 						case 2:
 							SetSystemStatus(SYS_STATUS_SYSSET);
+							ButtonSound();
 							break;
 						case 3:
 							
@@ -2892,6 +2940,7 @@ void Sys_Process(void)
 		key=Key_Read_WithTimeOut(TICKS_PER_SEC_SOFTTIMER/10);
 		if(key!=KEY_NONE)
 		{
+			ButtonSound();
 			Disp_flag=1;
 //            Key_Beep();
 			switch(key)

@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F429_439xx,USE_STDPERIPH_DRIVER,USE_USB_OTG_HS,USE_EMBEDDED_PHY</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include;..\..\Libraries\CMSIS\Include;..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\..\User;..\..\HARDWARE;..\..\User\lcd;..\..\FATFS;..\..\Libraries\STM32_USB_HOST_Library\Class\MSC\inc;..\..\Libraries\STM32_USB_HOST_Library\Core\inc;..\..\Libraries\STM32_USB_OTG_Driver\inc;..\..\User\flash;..\..\HARDWARE\font;..\..\User\APP;..\..\User\RTC;..\..\FILESYS</IncludePath>
+              <IncludePath>..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include;..\..\Libraries\CMSIS\Include;..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\..\User;..\..\HARDWARE;..\..\User\lcd;..\..\FATFS;..\..\Libraries\STM32_USB_HOST_Library\Class\MSC\inc;..\..\Libraries\STM32_USB_HOST_Library\Core\inc;..\..\Libraries\STM32_USB_OTG_Driver\inc;..\..\User\flash;..\..\HARDWARE\font;..\..\User\APP;..\..\User\RTC;..\..\FILESYS;..\..\User\beep</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -791,6 +791,11 @@
               <FileName>ch376.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\HARDWARE\ch376\ch376.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_beep.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\beep\bsp_beep.c</FilePath>
             </File>
           </Files>
         </Group>

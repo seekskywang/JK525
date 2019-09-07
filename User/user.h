@@ -29,8 +29,8 @@
 #define SETUP_ADDR_X		(6)
 #define SETUP_ADDR_Y		(27)
 #define HEIGHT_OF_SETUP		(20)
-#define SORTING_Y_DISP  180
-#define SORTING_XDISP   400
+#define SORTING_Y_DISP  315
+#define SORTING_XDISP   510
 
 
 #define TESTVALUE_X 64

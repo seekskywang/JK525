@@ -64,6 +64,7 @@
 "..\..\output\bsp_exti.o"
 "..\..\output\touch.o"
 "..\..\output\ch376.o"
+"..\..\output\bsp_beep.o"
 "..\..\output\diskio.o"
 "..\..\output\ff.o"
 "..\..\output\cc936.o"

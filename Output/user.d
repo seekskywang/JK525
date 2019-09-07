@@ -68,3 +68,4 @@
 ..\..\output\user.o: ..\..\User\bsp_exti.h
 ..\..\output\user.o: ..\..\HARDWARE\cpld.h
 ..\..\output\user.o: ..\..\User\./RTC/bsp_rtc.h
+..\..\output\user.o: ..\..\User\./beep/bsp_beep.h
